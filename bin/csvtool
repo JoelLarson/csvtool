@@ -1,0 +1,24 @@
+#!/usr/bin/php
+<?php
+
+$initialMemory = memory_get_usage();
+
+$files = [
+    'Application',
+    'CSVFile',
+    'StreamedCSVFile',
+    'Command',
+    'AddCommand',
+    'ListCommand',
+    'FilterByColumnCommand',
+    'MergeFilesCommand',
+    'RemoveRowsByColumnCommand',
+    'ChangeDataByColumnCommand',
+];
+
+foreach($files as $file) {
+    require __DIR__ . "/../src/{$file}.php";
+}
+
+$app = new CSVTool\Application($initialMemory);
+$app->run($argv);

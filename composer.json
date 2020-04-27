@@ -1,0 +1,59 @@
+{
+    "name": "joellarson/csvtool",
+    "type": "project",
+    "license": "UNLICENSED",
+    "authors": [
+        {
+            "name": "Joel Larson",
+            "email": "joellarsonweb@gmail.com"
+        }
+    ],
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "prefer-stable": true,
+    "minimum-stability": "dev",
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "broadnetengineering/textfiles",
+                "version": "master",
+                "dist": {
+                    "url": "https://github.com/BroadnetEngineering/TextFiles/archive/master.zip",
+                    "type": "zip"
+                },
+                "source": {
+                    "url": "git@github.com:BroadnetEngineering/TextFiles.git",
+                    "type": "git",
+                    "reference": "master"
+                }
+            }
+        }
+    ],
+    "require": {
+        "php": "^7.2",
+        "broadnetengineering/textfiles": "master"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.1",
+        "squizlabs/php_codesniffer": "^3.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "CSVTool\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "lint": "phpcs --standard=PSR1,PSR2,PSR12 ./src ./tests",
+        "lint-fix": "phpcbf --standard=PSR1,PSR2,PSR12 ./src ./tests"
+    }
+}
